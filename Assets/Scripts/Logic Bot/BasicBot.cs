@@ -28,8 +28,19 @@ public class BasicBot : MonoBehaviour
     [SerializeField] float healthBot = 1f;
     [SerializeField] float speedBot = 1.5f;
     [SerializeField] GameObject prefabBomb;
-    public StateBot stateBot = StateBot.Stop;
+    StateBot stateBot = StateBot.Stop;
+    
+    public StateBot StateBot{
+        get{
+            return stateBot;
+        }
+        set{
+            stateBot = value;
+        }
+    }
+
     StateMove stateMove = StateMove.moveToPoint;
+    
 
     void Start()
     {
@@ -53,7 +64,7 @@ public class BasicBot : MonoBehaviour
 
     public void BotDie()
     {
-        stateBot = StateBot.Die;
+        StateBot = StateBot.Die;
         Destroy(gameObject);
     }
 

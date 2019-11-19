@@ -12,9 +12,6 @@ GameObject:
   - component: {fileID: 6428100242654537516}
   - component: {fileID: 6428100242654537517}
   - component: {fileID: 6428100242654537506}
-  - component: {fileID: 6428100242654537507}
-  - component: {fileID: 6428100242654537518}
-  - component: {fileID: 6428100242654537513}
   m_Layer: 0
   m_Name: Bot
   m_TagString: Bot
@@ -94,43 +91,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6428100242654537507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6428100242654537504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb9a09f7d901b2b4d8bac490e31225b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6428100242654537518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6428100242654537504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a457a696a9c94db49bca5d436d82d163, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6428100242654537513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6428100242654537504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b011aa579d98fd249a10e91931f5c739, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBot: 1
-  speedBot: 1
-  prefabBomb: {fileID: 0}
-  stateBot: 1

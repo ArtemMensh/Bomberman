@@ -21,59 +21,59 @@ public class BotSimple : MonoBehaviour
 
     public void Logic()
     {
-        if (basicBot.stateBot == StateBot.Die)
+        if (basicBot.StateBot == StateBot.Die)
         {
             basicBot.BotDie();
             return;
         }
 
-        if (basicBot.stateBot == StateBot.Stop)
+        if (basicBot.StateBot == StateBot.Stop)
         {
             // Choice point for plant boomb 
             wayBot.Clear();
             var pointPlant = ChoicePlantBomb();
             wayBot = FindWayToPoint(pointPlant);
-            basicBot.stateBot = StateBot.Moving;
+            basicBot.StateBot = StateBot.Moving;
         }
 
-        if (basicBot.stateBot == StateBot.Moving)
+        if (basicBot.StateBot == StateBot.Moving)
         {
             // Move to plant bomb
             if (wayBot.Count == 0)
-                basicBot.stateBot = StateBot.PlantBomb;
+                basicBot.StateBot = StateBot.PlantBomb;
             else
                 basicBot.botMoveToWay(wayBot);
         }
 
-        if (basicBot.stateBot == StateBot.PlantBomb)
+        if (basicBot.StateBot == StateBot.PlantBomb)
         {
             // Plant bomb
             basicBot.PlantBomb();
             positionBomb = transform.position;
-            basicBot.stateBot = StateBot.ChoiceWayFromBomb;
+            basicBot.StateBot = StateBot.ChoiceWayFromBomb;
         }
 
-        if (basicBot.stateBot == StateBot.ChoiceWayFromBomb)
+        if (basicBot.StateBot == StateBot.ChoiceWayFromBomb)
         {
             // Choice way from plant bomb
             wayBot.Clear();
             ChoiceWayFromBomb();
-            basicBot.stateBot = StateBot.MoveFromBomb;
+            basicBot.StateBot = StateBot.MoveFromBomb;
         }
 
-        if (basicBot.stateBot == StateBot.MoveFromBomb)
+        if (basicBot.StateBot == StateBot.MoveFromBomb)
         {
             if (wayBot.Count == 0)
-                basicBot.stateBot = StateBot.Pause;
+                basicBot.StateBot = StateBot.Pause;
             else
                 basicBot.botMoveToWay(wayBot);
         }
 
-        if (basicBot.stateBot == StateBot.Pause)
+        if (basicBot.StateBot == StateBot.Pause)
         {
             if (BombExplosion())
             {
-                basicBot.stateBot = StateBot.Stop;
+                basicBot.StateBot = StateBot.Stop;
             }
         }
     }
