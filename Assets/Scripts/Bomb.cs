@@ -7,7 +7,6 @@ public class Bomb : MonoBehaviour
     [SerializeField] int powerExplosion = 1; // How many block destroy for one explosion
     [SerializeField] float timeExplosion = 2f;
     public float radiusExplosion = 2f;
-
     [SerializeField] GameObject flame;
 
     // Start is called before the first frame update
@@ -64,7 +63,6 @@ public class Bomb : MonoBehaviour
                         {
                             dontDestroy = true;
                         }
-
                     }
                     if (dontDestroy || countDestroyBlock == powerExplosion) break;
                 }

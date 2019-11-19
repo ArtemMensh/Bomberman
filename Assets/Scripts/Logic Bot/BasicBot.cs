@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+
 public enum StateBot
 {
     Moving,
@@ -14,6 +15,8 @@ public enum StateBot
     Pause
 };
 
+[RequireComponent(typeof(CharacterController))]
+
 public class BasicBot : MonoBehaviour
 {
     enum StateMove
@@ -21,26 +24,17 @@ public class BasicBot : MonoBehaviour
         moveToPoint,
         nextPoint
     };
-
     CharacterController characterController;
-
     [SerializeField] float healthBot = 1f;
-
     [SerializeField] float speedBot = 1.5f;
-
     [SerializeField] GameObject prefabBomb;
-
-
     public StateBot stateBot = StateBot.Stop;
-
     StateMove stateMove = StateMove.moveToPoint;
 
     void Start()
     {
-        if (characterController == null)
-            characterController = gameObject.AddComponent<CharacterController>();
-        if (prefabBomb == null)
-            prefabBomb = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Bomb.prefab", typeof(GameObject));
+        characterController = gameObject.GetComponent<CharacterController>();
+
     }
 
     public void botMoveToWay(List<Vector3> way)
@@ -118,4 +112,5 @@ public class BasicBot : MonoBehaviour
 
         return coordinateBobmb;
     }
+    
 }

@@ -10,14 +10,12 @@ public class BotSimple : MonoBehaviour
     List<Vector3> wayBot;
     Dictionary<Vector3, Vector3> parentPoint;
     BasicBot basicBot;
-    Bomb bomb;
     Vector3 positionBomb;
     bool bombExplosion = false;
 
     void Start()
     {
         basicBot = gameObject.GetComponent<BasicBot>();
-        bomb = gameObject.GetComponent<Bomb>();
         wayBot = new List<Vector3>();
     }
 

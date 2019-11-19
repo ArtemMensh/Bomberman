@@ -2,23 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
+[RequireComponent(typeof(CharacterController))]
 public class Player : MonoBehaviour
 {
     [SerializeField] float speedPlayer = 6; // Speed Player
     float gravityForce; // Gravity Player
     Vector3 moveVector; // Vector move Player
-
     [SerializeField] GameObject prefabBomb;
-
     CharacterController characterController;
 
     enum StatePlayer
     {
-        life,
+        live,
         die
     };
 
-    StatePlayer statePlayer = StatePlayer.life;
+    StatePlayer statePlayer = StatePlayer.live;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (statePlayer == StatePlayer.life)
+        if (statePlayer == StatePlayer.live)
         {
             MovePlayer();
             Gravity();
@@ -37,7 +37,8 @@ public class Player : MonoBehaviour
         }
     }
 
-   public void Die(){
+    public void Die()
+    {
         statePlayer = StatePlayer.die;
         Destroy(gameObject);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -48,9 +49,7 @@ public class Player : MonoBehaviour
         if (Input.GetButtonUp("Jump"))
         {
             Vector3 coordinateBobmb = AroundCoordinateBomb();
-
             GameObject bomb = Instantiate(prefabBomb, coordinateBobmb, Quaternion.identity);
-
         }
     }
 
