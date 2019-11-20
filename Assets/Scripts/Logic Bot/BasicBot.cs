@@ -41,11 +41,9 @@ public class BasicBot : MonoBehaviour
 
     StateMove stateMove = StateMove.moveToPoint;
     
-
     void Start()
     {
         characterController = gameObject.GetComponent<CharacterController>();
-
     }
 
     public void botMoveToWay(List<Vector3> way)

@@ -81,7 +81,7 @@ public class BotSimple : MonoBehaviour
     Vector3 ChoicePlantBomb()
     {
         var listPossiblePoint = GetListPossiblePoint(true);
-        if(listPossiblePoint.Count == 0) GetListPossiblePoint(false);
+        if (listPossiblePoint.Count == 0) GetListPossiblePoint(false);
         return listPossiblePoint[Random.Range(0, listPossiblePoint.Count)];
     }
 
@@ -93,9 +93,9 @@ public class BotSimple : MonoBehaviour
         var enterPointlist = new List<Vector3>();
         var stack = new Stack<Vector3>();
         var startPoint = gameObject.transform.position;
-        Vector3 currentPoint;
+        var currentPoint = startPoint;
         parentPoint = new Dictionary<Vector3, Vector3>();
-        stack.Push(startPoint);
+        stack.Push(currentPoint);
 
         // DFS
         do
@@ -105,14 +105,16 @@ public class BotSimple : MonoBehaviour
 
             if (nearBox)
             {
-                if (NearBox(currentPoint) && !possiblePoint.Contains(currentPoint))
+                if (NearBox(currentPoint) && !possiblePoint.Contains(currentPoint) && currentPoint != startPoint)
                 {
                     possiblePoint.Add(currentPoint);
                 }
             }
             else
-                possiblePoint.Add(currentPoint);
-
+            {
+                if (currentPoint != startPoint)
+                    possiblePoint.Add(currentPoint);
+            }
             NextStep(stack, enterPointlist, currentPoint);
 
         } while (stack.Count != 0);
@@ -184,11 +186,7 @@ public class BotSimple : MonoBehaviour
         do
         {
             way.Add(point);
-            //if (parentPoint.ContainsKey(point))
-                point = parentPoint[point];
-            //else
-            //    print(point);
-
+            point = parentPoint[point];
         } while (point != transform.position);
         way.Reverse();
         return way;

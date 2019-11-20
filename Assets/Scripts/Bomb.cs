@@ -39,7 +39,7 @@ public class Bomb : MonoBehaviour
                 {
                     dontDestroy = false;
                     pointExplosion += vectorNextPoint * coefNextPoint;
-                    Collider[] intersecting = Physics.OverlapSphere(pointExplosion, 0.01f);
+                    Collider[] intersecting = Physics.OverlapSphere(pointExplosion, 0.2f);
 
                     if(intersecting.Length == 0)  Instantiate(flame,pointExplosion, Quaternion.identity );
 
