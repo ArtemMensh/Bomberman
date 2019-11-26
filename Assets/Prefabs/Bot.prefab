@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6428100242654537516}
   - component: {fileID: 6428100242654537517}
   - component: {fileID: 6428100242654537506}
+  - component: {fileID: 291514274}
   m_Layer: 0
   m_Name: Bot
   m_TagString: Bot
@@ -91,3 +92,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &291514274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6428100242654537504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1b2d9072eb2d642a993b46dc1597d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBot: 1
+  speedBot: 2
+  logicBot: 0
+  prefabBomb: {fileID: 5928272511035736258, guid: 6cf9ff7e2bd70354c974478916ba54ba,
+    type: 3}
+  powerExplosion: 1
+  timeExplosion: 2
+  radiusExplosion: 2

@@ -58,11 +58,11 @@
      <Compile Include="Assets\Fx Explosion Pack\Script\csMouseOrbit.cs" />
      <Compile Include="Assets\Fx Explosion Pack\Script\DestroyEffect.cs" />
      <Compile Include="Assets\Scripts\Bomb.cs" />
+     <Compile Include="Assets\Scripts\Bot\BasicBot.cs" />
+     <Compile Include="Assets\Scripts\Bot\Bot.cs" />
+     <Compile Include="Assets\Scripts\Bot\BotSimple.cs" />
      <Compile Include="Assets\Scripts\DestroyFlame.cs" />
      <Compile Include="Assets\Scripts\GenerateBox.cs" />
-     <Compile Include="Assets\Scripts\Logic Bot\BasicBot.cs" />
-     <Compile Include="Assets\Scripts\Logic Bot\BotLevel1.cs" />
-     <Compile Include="Assets\Scripts\Logic Bot\BotSimple.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>F:/Job/Unity/BomberMan/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    [SerializeField] int powerExplosion = 1; // How many block destroy for one explosion
-    [SerializeField] float timeExplosion = 2f;
-    public float radiusExplosion = 2f;
+    public int powerExplosion = 1; // How many block destroy for one explosion
+    public float timeExplosion = 2f;
+    public int radiusExplosion = 2;
     [SerializeField] GameObject flame;
 
     // Start is called before the first frame update
@@ -26,7 +26,7 @@ public class Bomb : MonoBehaviour
         Vector3 pointExplosion;
         int countDestroyBlock = 0;
         bool dontDestroy;
-        int[] coefNextPointArray = new int[] { 1, -1 };
+        int[] coefNextPointArray = new int[] { 1, -1, 0 };
         Vector3[] vectorNextPointArray = new Vector3[] { new Vector3(1, 0, 0), new Vector3(0, 0, 1) };
 
         foreach (Vector3 vectorNextPoint in vectorNextPointArray)
@@ -41,29 +41,32 @@ public class Bomb : MonoBehaviour
                     pointExplosion += vectorNextPoint * coefNextPoint;
                     Collider[] intersecting = Physics.OverlapSphere(pointExplosion, 0.2f);
 
-                    if(intersecting.Length == 0)  Instantiate(flame,pointExplosion, Quaternion.identity );
+                    if (intersecting.Length == 0) Instantiate(flame, pointExplosion, Quaternion.identity);
 
                     foreach (Collider collider in intersecting)
                     {
                         if (collider.gameObject.tag == "Box")
                         {
                             Destroy(collider.gameObject);
-                            Instantiate(flame,pointExplosion, Quaternion.identity );
+                            Instantiate(flame, pointExplosion, Quaternion.identity);
                             countDestroyBlock++;
                         }
-                        else if(collider.tag == "Player"){
-                           var player = collider.gameObject.GetComponent<Player>();
-                           player.Die();
+                        else if (collider.tag == "Player")
+                        {
+                            var player = collider.gameObject.GetComponent<Player>();
+                            player.Die();
                         }
-                        else if(collider.tag == "Bot"){
-                           var bot = collider.gameObject.GetComponent<BasicBot>();
-                           bot.BotDie();
+                        else if (collider.tag == "Bot")
+                        {
+                            var bot = collider.gameObject.GetComponent<BasicBot>();
+                            bot.BotDie();
                         }
                         else
                         {
                             dontDestroy = true;
                         }
                     }
+                    if (coefNextPoint == 0) break;
                     if (dontDestroy || countDestroyBlock == powerExplosion) break;
                 }
             }
